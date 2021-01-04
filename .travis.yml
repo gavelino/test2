@@ -13,3 +13,12 @@ branches:
 script:
   - yarn test
   - yarn build
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  local_dir: build
+  keep-history: true
+  on:
+    branch: master
